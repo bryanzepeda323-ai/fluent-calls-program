@@ -1,0 +1,150 @@
+/* --- Base (Mobile First) --- */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding:0;
+    background-color: #F9F3E7;
+    overflow: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+    height: 100vh;
+}
+
+.mesa {
+    flex:1;
+    justify-content: space-around;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* FORM STYLE */
+form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-around;
+    padding: 60px 0;
+}
+
+.option-style {
+    display: flex;
+    cursor: pointer;  
+    border: 2px solid lightgray;
+    border-radius: 12px;
+    align-items: center;
+    gap: 20px;
+    padding:20px;
+    transition: background-color 0.2s, border-color 0.2s;
+    background-color: orange;
+    color:white;
+}
+
+.option-style label {
+    cursor: inherit;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+/*Selected Style*/
+.selected {
+     background-color: #F28C28;
+}
+
+/*pop up*/
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    color:#176D34;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+}
+
+.popup.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* --- Head, instrucciones y continuar --- */
+.head, .instrucciones, .contenedor-continuar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 10px 25px;
+    margin: 10px;
+}
+
+.head {
+    height: 5vh;
+    font-size: 1.5em;
+    color:#176D34;
+    font-weight: bolder;
+    border: 1px solid lightgray;
+}
+
+.instrucciones {
+    height: 15vh;
+    font-size: 1.5em;
+    color:white;
+    background-color: #176D34;
+    font-weight: bolder;
+    border: 1px solid lightgray;
+}
+
+.contenedor-continuar {
+    cursor: pointer;
+    height: 12vw;
+    background-color:#F28C28;
+    padding: 8px 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    width: calc(100% - 30px);
+}
+
+a {
+    text-decoration: none;
+    color:white;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* --- Desktop: min-width 950px --- */
+@media screen and (min-width: 950px) {
+    form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* solo columnas */
+     gap: 10px 30px; /* gap-row gap-column */
+    padding: 60px;
+}
+
+.option-style {
+    width: 95%;          /* opcional para dejar margen */
+    justify-self: center; /* centra cada opción */
+}
+
+    .contenedor-continuar {
+        height: 60px; /* ejemplo: igual que “another sample question” */
+    }
+}
